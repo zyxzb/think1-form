@@ -60,7 +60,10 @@ const Form = () => {
         body: data,
       });
       if (!res.ok) throw new Error();
-      if (res.ok) toast.success('Success');
+      if (res.ok) {
+        toast.success('Success');
+        setFormData(initialState);
+      }
     } catch (error: any) {
       toast.error('Something went wrong');
       console.error(error);
@@ -134,13 +137,15 @@ const Form = () => {
           name='name'
           type='text'
           labelText='First Name'
-          onChange={handleInputChange}
+          value={formData.name}
           error={errors.nameError}
+          onChange={handleInputChange}
         />
         <Input
           name='surname'
           type='text'
           labelText='Last Name'
+          value={formData.surname}
           onChange={handleInputChange}
           error={errors.surnameError}
         />
@@ -148,8 +153,9 @@ const Form = () => {
           name='email'
           type='email'
           labelText='Email Address'
-          onChange={handleInputChange}
+          value={formData.email}
           error={errors.emailError}
+          onChange={handleInputChange}
         />
         <RangeInput
           name='age'
