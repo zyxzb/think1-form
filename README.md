@@ -5,6 +5,7 @@
 ## Requirements
 
 ✅ React (used Next.js 14)
+✅ API Ninjas used - Holidays API -> [Check API documentation](https://api-ninjas.com/api/holidays "API")
 ✅ TypeScript
 ✅ Tailwind
 ✅ Responsive web design
