@@ -1,4 +1,4 @@
-# Form (based on Figma)
+# Form (based on Figma) + React Hook Form
 
 <font size='5'>[Open App](https://think1-form.vercel.app/ "Form")</font> 
 
@@ -9,7 +9,7 @@
 ✅ TypeScript
 ✅ Tailwind
 ✅ Responsive web design
-❌ Not using form libraries, e.g. Formik
+✅ React Hook Form
 
 <p align="center" width="100%">
   <img src="public/think1-form-screen.png" title="screenshot">
