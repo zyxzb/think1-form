@@ -20,16 +20,13 @@ import {
 } from 'date-fns';
 
 interface CalendarProps {
-  selectedDate: Date | null;
-  selectedTime: string;
-  handleCalendarChange: (name: string, value: any) => void;
+  selectedDate: Date;
+  selectedTime: any;
+  control: any;
+  setValue: any;
 }
 
-const Calendar = ({
-  selectedDate,
-  selectedTime,
-  handleCalendarChange,
-}: CalendarProps) => {
+const Calendar = ({ selectedDate, selectedTime, setValue }: CalendarProps) => {
   const today = startOfToday();
 
   const [holidayDayName, setHolidayDayName] = useState('');
@@ -42,15 +39,15 @@ const Calendar = ({
     end: endOfMonth(firstDayCurrentMonth),
   });
 
-  function previousMonth() {
+  const previousMonth = () => {
     const firstDayNextMonth = add(firstDayCurrentMonth, { months: -1 });
     setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'));
-  }
+  };
 
-  function nextMonth() {
+  const nextMonth = () => {
     const firstDayNextMonth = add(firstDayCurrentMonth, { months: 1 });
     setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'));
-  }
+  };
 
   return (
     <div className='mb-[32px] flex flex-col gap-[24px] sm:flex-row'>
@@ -122,7 +119,7 @@ const Calendar = ({
                     type='button'
                     disabled={isSunday(day) || isNationalDay}
                     onClick={() => {
-                      handleCalendarChange('date', day);
+                      setValue('date', day);
                       setHolidayDayName(isObservance);
                     }}
                     className={`mx-auto flex h-[32px] w-[32px] items-center justify-center rounded-full ${
@@ -144,12 +141,7 @@ const Calendar = ({
         </div>
         {holidayDayName && <HolidayInfo holidayDayName={holidayDayName} />}
       </div>
-      {selectedDate && (
-        <Time
-          handleCalendarChange={handleCalendarChange}
-          selectedTime={selectedTime}
-        />
-      )}
+      {selectedDate && <Time setValue={setValue} selectedTime={selectedTime} />}
     </div>
   );
 };

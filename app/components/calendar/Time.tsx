@@ -1,13 +1,14 @@
 'use client';
 
 import { availableHours } from '../../constants';
+import { classNames } from '@/app/utils';
 
 interface TimeProps {
   selectedTime: string;
-  handleCalendarChange: (name: string, value: string) => void;
+  setValue: any;
 }
 
-const Time = ({ selectedTime, handleCalendarChange }: TimeProps) => {
+const Time = ({ selectedTime, setValue }: TimeProps) => {
   return (
     <div className='flex flex-col gap-[8px]'>
       <span className='text-[16px] text-textColor'>Time</span>
@@ -18,15 +19,15 @@ const Time = ({ selectedTime, handleCalendarChange }: TimeProps) => {
             type='button'
             aria-label='select hour'
             onClick={() => {
-              handleCalendarChange('time', hour);
+              setValue('time', hour);
             }}
-            className={`flex h-[46px] w-[79px] items-center justify-center rounded-[8px] bg-defaultLabelBg text-textColor sm:w-[76px]
+            className={classNames(`flex h-[46px] w-[79px] items-center justify-center  rounded-[8px] bg-defaultLabelBg text-textColor sm:w-[76px]
             ${
               selectedTime === hour
                 ? 'border-[2px] border-defaultButton'
                 : 'border-[1px] border-defaultLabelBorder hover:bg-inactiveButton hover:text-defaultLabelBg'
             }
-            `}
+            `)}
           >
             {hour}
           </button>

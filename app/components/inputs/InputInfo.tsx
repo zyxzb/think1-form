@@ -11,7 +11,7 @@ const InputInfo = ({ error }: InputInfo) => {
     <div className='flex gap-[8px]'>
       <Image
         src='/icons/InputErrorIcon.svg'
-        alt='Holiday Info'
+        alt='Error'
         width={18}
         height={18}
       />
