@@ -11,6 +11,8 @@
 ✅ Responsive web design
 ❌ Not using form libraries, e.g. Formik
 
+## React Hook Form implemented on the second branch 
+
 <p align="center" width="100%">
   <img src="public/think1-form-screen.png" title="screenshot">
 </p>
